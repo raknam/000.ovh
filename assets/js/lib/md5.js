@@ -1,3 +1,7 @@
+/**
+ * Source: http://www.myersdaily.org/joseph/javascript/md5.js
+ */
+
 let MD5;
 export default MD5={};
 

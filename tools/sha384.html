@@ -1,10 +1,10 @@
 ---
 layout: default
-title:  "Tools: md5"
+title:  "Tools: sha384"
 ---
 
 <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-    <h1 class="display-4">Md5 Hash</h1>
+    <h1 class="display-4">SHA384 Hash</h1>
 </div>
 
 <form>
@@ -16,8 +16,8 @@ title:  "Tools: md5"
         <i class="fas fa-arrow-down"></i>
     </div>
     <div class="form-group">
-        <label for="output">MD5 Hash</label>
-        <input type="text" class="form-control" id="output" readonly placeholder="5d41402abc4b2a76b9719d911017c592"/>
+        <label for="output">SHA384 Hash</label>
+        <input type="text" class="form-control" id="output" readonly placeholder="59e1748777448c69de6b800d7a33bbfb9ff1b463e44354c3553bcdb9c666fa90125a3c79f90397bdf5f6a13de828684f"/>
     </div>
 </form>
 
@@ -31,6 +31,6 @@ title:  "Tools: md5"
         if (src.length === 0)
             document.getElementById('output').value = "";
         else
-            document.getElementById('output').value = Tools.md5(src);
+            document.getElementById('output').value = Tools.sha384(src);
     }
 </script>

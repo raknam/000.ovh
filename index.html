@@ -3,11 +3,24 @@ layout: default
 regenerate: true
 ---
 
-<h1>Tools</h1>
-<ul class="nav flex-column">
-    {% for tool in site.tools %}
-    <li class="nav-item">
-        <a class="nav-link" href="/tools/{{ tool }}">{{ tool | capitalize }}</a>
-    </li>
-    {% endfor %}
-</ul>
+<div class="row">
+    <div class="col-3">
+        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <a class="nav-link active" id="v-pills-tools-tab" data-toggle="pill" href="#v-pills-tools" role="tab">Tools</a>
+        </div>
+    </div>
+    <div class="col-9">
+        <div class="tab-content" id="v-pills-tabContent">
+            <div class="tab-pane fade show active" id="v-pills-tools" role="tabpanel">
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    {% assign sorted_tools = site.tools | sort_natural %}
+                    {% for tool in sorted_tools %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/tools/{{ tool }}">{{ tool | capitalize }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
