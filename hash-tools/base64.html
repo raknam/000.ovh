@@ -33,7 +33,7 @@ title:  "Tools: base64"
 
     function encode() {
         let src = document.getElementById('raw-text').value;
-        document.getElementById('encoded-text').value = Tools.base64encode(src);
+        document.getElementById('encoded-text').value = HashTools.base64encode(src);
 
         let textarea = document.getElementById('encoded-text');
         textarea.classList.remove('is-invalid');
@@ -46,7 +46,7 @@ title:  "Tools: base64"
         textarea.classList.remove('is-valid');
         let src = textarea.value;
         try {
-            document.getElementById('raw-text').value = Tools.base64decode(src);
+            document.getElementById('raw-text').value = HashTools.base64decode(src);
             textarea.classList.add('is-valid');
         } catch (e) {
             textarea.classList.add('is-invalid');

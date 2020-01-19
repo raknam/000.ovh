@@ -15,7 +15,7 @@ plugins:
 exclude:
   - .idea
 
-tools:
+hash-tools:
   - base64
   - md5
   - sha1
@@ -23,3 +23,5 @@ tools:
   - sha512
   - sha384
   - urlencode
+
+openssl-tools:

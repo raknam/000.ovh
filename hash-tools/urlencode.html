@@ -33,12 +33,12 @@ title:  "Tools: urlencode"
 
     function encode() {
         let src = document.getElementById('raw-text').value;
-        document.getElementById('encoded-text').value = Tools.urlencode(src);
+        document.getElementById('encoded-text').value = HashTools.urlencode(src);
     }
 
     function decode() {
         let textarea = document.getElementById('encoded-text');
         let src = textarea.value;
-        document.getElementById('raw-text').value = Tools.urldecode(src);
+        document.getElementById('raw-text').value = HashTools.urldecode(src);
     }
 </script>

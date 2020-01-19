@@ -1,10 +1,10 @@
 ---
 layout: default
-title:  "Tools: sha256"
+title:  "Tools: sha1"
 ---
 
 <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-    <h1 class="display-4">SHA256 Hash</h1>
+    <h1 class="display-4">SHA1 Hash</h1>
 </div>
 
 <form>
@@ -16,21 +16,25 @@ title:  "Tools: sha256"
         <i class="fas fa-arrow-down"></i>
     </div>
     <div class="form-group">
-        <label for="output">SHA256 Hash</label>
-        <input type="text" class="form-control" id="output" readonly placeholder="2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"/>
+        <label for="output">SHA1 Hash</label>
+        <input type="text" class="form-control" id="output" readonly placeholder="aaf4c61ddcc5e8a2dabede0f3b482cd9aea9434d"/>
     </div>
 </form>
 
+<script src="https://unpkg.com/node-forge@0.7.0/dist/forge.min.js"></script>
 <script>
+    var md = forge.md.sha1.create();
+
     (function(){
         document.getElementById('source').addEventListener('keyup', refeshHash);
     })();
 
     function refeshHash() {
+        md.start();
         let src = document.getElementById('source').value;
         if (src.length === 0)
             document.getElementById('output').value = "";
         else
-            document.getElementById('output').value = Tools.sha256(src);
+            document.getElementById('output').value = md.update(src).digest().toHex();
     }
 </script>

@@ -1,10 +1,10 @@
 ---
 layout: default
-title:  "Tools: sha512"
+title:  "Tools: sha384"
 ---
 
 <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-    <h1 class="display-4">SHA512 Hash</h1>
+    <h1 class="display-4">SHA384 Hash</h1>
 </div>
 
 <form>
@@ -16,21 +16,25 @@ title:  "Tools: sha512"
         <i class="fas fa-arrow-down"></i>
     </div>
     <div class="form-group">
-        <label for="output">SHA512 Hash</label>
-        <textarea class="form-control" id="output" readonly placeholder="9b71d224bd62f3785d96d46ad3ea3d73319bfbc2890caadae2dff72519673ca72323c3d99ba5c11d7c7acc6e14b8c5da0c4663475c2e5c3adef46f73bcdec043"></textarea>
+        <label for="output">SHA384 Hash</label>
+        <input type="text" class="form-control" id="output" readonly placeholder="59e1748777448c69de6b800d7a33bbfb9ff1b463e44354c3553bcdb9c666fa90125a3c79f90397bdf5f6a13de828684f"/>
     </div>
 </form>
 
+<script src="https://unpkg.com/node-forge@0.7.0/dist/forge.min.js"></script>
 <script>
+    var md = forge.md.sha384.create();
+
     (function(){
         document.getElementById('source').addEventListener('keyup', refeshHash);
     })();
 
     function refeshHash() {
+        md.start();
         let src = document.getElementById('source').value;
         if (src.length === 0)
             document.getElementById('output').value = "";
         else
-            document.getElementById('output').value = Tools.sha512(src);
+            document.getElementById('output').value = md.update(src).digest().toHex();
     }
 </script>

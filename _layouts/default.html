@@ -34,13 +34,20 @@
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Tools
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            {% assign sorted_tools = site.tools | sort_natural %}
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">Hash Tools</a>
+                        <div class="dropdown-menu">
+                            {% assign sorted_tools = site.hash-tools | sort_natural %}
                             {% for tool in sorted_tools %}
-                            <a class="dropdown-item" href="/tools/{{ tool }}">{{ tool | capitalize }}</a>
+                            <a class="dropdown-item" href="/hash-tools/{{ tool }}">{{ tool | capitalize }}</a>
+                            {% endfor %}
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">OpenSSL Tools</a>
+                        <div class="dropdown-menu">
+                            {% assign sorted_tools = site.openssl-tools | sort_natural %}
+                            {% for tool in sorted_tools %}
+                            <a class="dropdown-item" href="/openssl-tools/{{ tool }}">{{ tool | capitalize }}</a>
                             {% endfor %}
                         </div>
                     </li>
@@ -68,11 +75,20 @@
                     <small class="d-block mb-3 text-muted">©{{ "now" | date: '%Y' }} <a href="{{ site.github.owner_url }}" class="text-muted">{{ site.github.owner_name | downcase | capitalize }}</a></small>
                 </div>
                 <div class="col-6 col-md">
-                    <h5>Tools</h5>
+                    <h5>Hash Tools</h5>
                     <ul class="list-unstyled text-small">
-                        {% assign sorted_tools = site.tools | sort_natural %}
+                        {% assign sorted_tools = site.hash-tools | sort_natural %}
                         {% for tool in sorted_tools %}
-                        <li><a class="text-muted" href="/tools/{{ tool }}">{{ tool | capitalize }}</a></li>
+                        <li><a class="text-muted" href="/hash-tools/{{ tool }}">{{ tool | capitalize }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="col-6 col-md">
+                    <h5>OpenSSL Tools</h5>
+                    <ul class="list-unstyled text-small">
+                        {% assign sorted_tools = site.openssl-tools | sort_natural %}
+                        {% for tool in sorted_tools %}
+                        <li><a class="text-muted" href="/openssl-tools/{{ tool }}">{{ tool | capitalize }}</a></li>
                         {% endfor %}
                     </ul>
                 </div>
@@ -103,7 +119,5 @@
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"
             integrity="sha256-OUFW7hFO0/r5aEGTQOz9F/aXQOt+TwqI1Z4fbVvww04=" crossorigin="anonymous"></script>
-
-    <script src="/assets/js/tools.js" type="module"></script>
 </body>
 </html>

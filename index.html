@@ -5,18 +5,29 @@ regenerate: true
 
 <div class="row">
     <div class="col-3">
-        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-            <a class="nav-link active" id="v-pills-tools-tab" data-toggle="pill" href="#v-pills-tools" role="tab">Tools</a>
+        <div class="nav flex-column nav-pills" role="tablist">
+            <a class="nav-link active" data-toggle="pill" href="#v-pills-hash-tools" role="tab">Hash Tools</a>
+            <a class="nav-link" data-toggle="pill" href="#v-pills-openssl-tools" role="tab">OpenSSL Tools</a>
         </div>
     </div>
     <div class="col-9">
         <div class="tab-content" id="v-pills-tabContent">
-            <div class="tab-pane fade show active" id="v-pills-tools" role="tabpanel">
-                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                    {% assign sorted_tools = site.tools | sort_natural %}
+            <div class="tab-pane fade show active" id="v-pills-hash-tools" role="tabpanel">
+                <ul class="nav nav-pills mb-3" role="tablist">
+                    {% assign sorted_tools = site.hash-tools | sort_natural %}
                     {% for tool in sorted_tools %}
                     <li class="nav-item">
-                        <a class="nav-link" href="/tools/{{ tool }}">{{ tool | capitalize }}</a>
+                        <a class="nav-link" href="/hash-tools/{{ tool }}">{{ tool | capitalize }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="tab-pane fade show" id="v-pills-openssl-tools" role="tabpanel">
+                <ul class="nav nav-pills mb-3" role="tablist">
+                    {% assign sorted_tools = site.openssl-tools | sort_natural %}
+                    {% for tool in sorted_tools %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/openssl-tools/{{ tool }}">{{ tool | capitalize }}</a>
                     </li>
                     {% endfor %}
                 </ul>

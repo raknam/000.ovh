@@ -1,0 +1,24 @@
+---
+layout: default
+title:  "OpenSSL Tools: test"
+---
+
+<form>
+    <div class="form-group">
+        <label for="raw-text">Raw text</label>
+        <textarea class="form-control" id="raw-text" placeholder="hello"></textarea>
+    </div>
+    <input type="button" value="GO" id="go"/>
+</form>
+
+
+<script src="https://unpkg.com/node-forge@0.7.0/dist/forge.min.js"></script>
+<script>
+    (function () {
+        document.getElementById('go').addEventListener('click', go);
+    })();
+    
+    function go() {
+
+    }
+</script>
