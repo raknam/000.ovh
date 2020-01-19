@@ -1,0 +1,13 @@
+---
+layout: default
+regenerate: true
+---
+
+<h1>Tools</h1>
+<ul class="nav flex-column">
+    {% for tool in site.tools %}
+    <li class="nav-item">
+        <a class="nav-link" href="/tools/{{ tool }}">{{ tool | capitalize }}</a>
+    </li>
+    {% endfor %}
+</ul>

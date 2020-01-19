@@ -1,0 +1,55 @@
+---
+layout: default
+title:  "Tools: base64"
+---
+
+<div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">Base64 encode/decode</h1>
+</div>
+
+<form>
+    <div class="form-group">
+        <label for="raw-text">Raw text</label>
+        <textarea class="form-control" id="raw-text" placeholder="hello"></textarea>
+    </div>
+    <div class="form-group text-center">
+        <i class="fas fa-arrow-up"></i>
+        <i class="fas fa-arrow-down"></i>
+    </div>
+    <div class="form-group">
+        <label for="base64-text">Base64 text</label>
+        <textarea class="form-control" id="base64-text" placeholder="aGVsbG8="></textarea>
+        <div class="invalid-feedback">
+            This text is not a valid base64.
+        </div>
+    </div>
+</form>
+
+<script>
+    (function(){
+        document.getElementById('raw-text').addEventListener('keyup', encode);
+        document.getElementById('base64-text').addEventListener('keyup', decode);
+    })();
+
+    function encode() {
+        let src = document.getElementById('raw-text').value;
+        document.getElementById('base64-text').value = Tools.base64encode(src);
+
+        let textarea = document.getElementById('base64-text');
+        textarea.classList.remove('is-invalid');
+        textarea.classList.remove('is-valid');
+    }
+
+    function decode() {
+        let textarea = document.getElementById('base64-text');
+        textarea.classList.remove('is-invalid');
+        textarea.classList.remove('is-valid');
+        let src = textarea.value;
+        try {
+            document.getElementById('raw-text').value = Tools.base64decode(src);
+            textarea.classList.add('is-valid');
+        } catch (e) {
+            textarea.classList.add('is-invalid');
+        }
+    }
+</script>
