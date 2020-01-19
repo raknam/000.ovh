@@ -5,10 +5,40 @@ title:  "OpenSSL Tools: test"
 
 <form>
     <div class="form-group">
-        <label for="raw-text">Raw text</label>
-        <textarea class="form-control" id="raw-text" placeholder="hello"></textarea>
+        <label for="private-key">PrivateKey</label>
+        <textarea class="form-control" id="private-key" placeholder="-----BEGIN RSA PRIVATE KEY-----\n...\n-----END RSA PRIVATE KEY-----">-----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEAvjeqfoaX8dxvTo0iJIBO203IA8O/cnAqi+4uD7Y+ucB3DVzL
+EO+9ncVzqw5bIS53hd/BTv4mp21cMqF6caK8wMSKJD4LqZ0guU9f/Fm1QPoEggDq
+M451LShYex5E30n6mi4E27IOUE0qljmtDCdUNOku7yVPM14pLC4Mh7MIMDavUW3b
+KGYGL1oHxTbrofMgQ0aL+GK4t21ePz+EiWOXZKk4hI8Z4TzzmT58A3NCW0ySrAId
+xGDieXD8apx0VSQ+7TmFOM2QME5UMqAoU8mxi3aSPaX2RnEa/Cplbkapl4f9ZbHU
+GDmFgEXixB9KmxlxXLfd1yZ7VRhtfEJ8oqm/+wIDAQABAoIBAF4+yGuuFiSQelmq
+FauOIwQHcr1ixD1YE8yG8y13t3ZjRNlLC5XVotZD2X58O2yiUDf1WBriU5aK2a6A
+UWFyJyE/f85bK34bSvZlvIIUlHigJ5GeEGwA/k+keMpvgeI8Dj1L5b5QZ0UkJqCN
+7Q5jghZBHq8AhlBGLBImsrCdZMY1x1RwXBCQjYSw2ifECKEFCTgdaSRmry7NYdwp
+JWQpalZmf39zePYVb5rKEvf4Ni83GhwPHV4mNswgMrgwrVHN/zEsQfB1jvbxEm6b
+QjlmXJmlXhYYb50PuUKkJ8IoztfomFhvPW0cMZdmofWonmp/6DqeuhfG3NNg3HuX
+dw3yyUkCgYEA3jeKLchLMdglm+DY29K9U2AX5Al0od1vV322j00TC2SDuElqJGM1
+FoUVMsRgM7oTZ70r1rrAMWYNrhXePsM/bzZFJm7Sjmqm5TJADdIOxuQCGuKEbJsC
+S/g+L4nmh+7ouSqsNU3yY1JwIB7ptYqBUA7m5AnLzQ6gnQUAF7nWoAUCgYEA2yK8
+1DpoH4UoThX4yASGLOerz9Ha+VSFMxNIoN3v8t0wuHe7mjUb3h4fCfQgzDQ9uNnP
+CWIKrRl7dKzwDjWaCDWzkDEtdf5S2f9IL1jEs1shbztawweH1G3A8LEuNdH4VGBt
+PX/VKFDio88Tkf89NuTbhtuj6wDlAhuJrQNM3/8CgYEAqmgq9ZrgVxPrG1Nc2Y4N
+E6/gAkZiA3K83HoSEmhHj3gALsVVuRu+7UsXC3xeTayHDwmZYayKkBczrGkmqjiu
+H4mdk7BulToiTCaxyidon4rgNl+4r1RbeYifn3L/rwQ9wSmBL8tbcmEYjPlHvai+
+K3eSBhOhDtoFvwPDo24msUUCgYAo+vYVOlb+jghbkgBUZ4QwIaMf2j75IbVHN/P9
+IYQeBv91f+61h/kOMNPdKKp5hcuFJjZxqsQUWw+bYjwCbEPCBUjvTkMSLd2Qpwz4
+zcD7Sa+W/aKblmzwbRYH7RqXNg0aum2zcpSKVZYMzEz8oJ7yBRqIvcqJyEELg9rb
+YCKgQQKBgQCxwhFF0hPSflNBsHSIsSz4REMdU2PUjuu+L+D4LDBIbeU5JWPNKJQC
+YBB1ti0q/4XyFcATqZwZatbfcpCgNrZceTtdBilurFJFZiGLOkegsifqCYCiPYO2
+ypWevJF/+TcPg3BjUj4GqS4s8L4D++blP9rGcUjDo5dimaJaUTL+iQ==
+-----END RSA PRIVATE KEY-----</textarea>
     </div>
     <input type="button" value="GO" id="go"/>
+    <div class="form-group">
+        <label for="public-key">PublicKey</label>
+        <textarea class="form-control" id="public-key"></textarea>
+    </div>
 </form>
 
 
@@ -17,8 +47,9 @@ title:  "OpenSSL Tools: test"
     (function () {
         document.getElementById('go').addEventListener('click', go);
     })();
-    
-    function go() {
 
+    function go() {
+        caKey = forge.pki.privateKeyFromPem(document.getElementById('private-key').value);
+        document.getElementById('public-key').value = forge.pki.publicKeyToPem(caKey);
     }
 </script>
