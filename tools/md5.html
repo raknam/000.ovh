@@ -1,0 +1,27 @@
+---
+layout: default
+title:  "Tools: md5"
+permalink: /tools/md5/
+---
+
+<form>
+    <div class="form-group">
+        <label for="md5">Source</label>
+        <input type="text" class="form-control" id="md5" placeholder="hello"/>
+    </div>
+    <div class="form-group">
+        <label for="md5">MD5 Hash</label>
+        <input type="text" class="form-control" id="md5-output" readonly placeholder="5d41402abc4b2a76b9719d911017c592"/>
+    </div>
+</form>
+
+<script>
+    (function(){
+        document.getElementById('md5').addEventListener('keyup', refreshMd5);
+    })();
+
+    function refreshMd5() {
+        let src = document.getElementById('md5').value;
+        document.getElementById('md5-output').value = Tools.md5(src);
+    }
+</script>

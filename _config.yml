@@ -1,3 +1,19 @@
-theme: jekyll-theme-architect
+title: Raknam's Tools
+email: me@raknam.fr
+description: >-
+  Bla bla bla
+baseurl: ""
+url: "https://000.ovh"
+
+twitter_username: raknam
+github_username:  raknam
+show_downloads:   false
+# google_analytics:
+
+repository: raknam/000.ovh
+
 plugins:
-  - jekyll-feed
+  - jekyll-coffeescript
+
+exclude:
+  - .idea
