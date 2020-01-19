@@ -15,3 +15,5 @@ window.Tools = new class
   sha256: (s) -> SHA256.SHA256(s)
   sha384: (s) -> SHA384.SHA384(s)
   sha512: (s) -> SHA512.SHA512(s)
+  urlencode: (s) -> encodeURIComponent(s)
+  urldecode: (s) -> decodeURIComponent(s)

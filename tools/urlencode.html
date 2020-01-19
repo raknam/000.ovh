@@ -1,0 +1,44 @@
+---
+layout: default
+title:  "Tools: urlencode"
+---
+
+<div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">URL encode/decode</h1>
+</div>
+
+<form>
+    <div class="form-group">
+        <label for="raw-text">URL Decoded text</label>
+        <textarea class="form-control" id="raw-text" placeholder="https://mozilla.org/?x=шеллы"></textarea>
+    </div>
+    <div class="form-group text-center">
+        <i class="fas fa-arrow-up"></i>
+        <i class="fas fa-arrow-down"></i>
+    </div>
+    <div class="form-group">
+        <label for="encoded-text">URL Encoded text</label>
+        <textarea class="form-control" id="encoded-text" placeholder="https://mozilla.org/?x=%D1%88%D0%B5%D0%BB%D0%BB%D1%8B"></textarea>
+        <div class="invalid-feedback">
+            This text is not a valid base64.
+        </div>
+    </div>
+</form>
+
+<script>
+    (function(){
+        document.getElementById('raw-text').addEventListener('keyup', encode);
+        document.getElementById('encoded-text').addEventListener('keyup', decode);
+    })();
+
+    function encode() {
+        let src = document.getElementById('raw-text').value;
+        document.getElementById('encoded-text').value = Tools.urlencode(src);
+    }
+
+    function decode() {
+        let textarea = document.getElementById('encoded-text');
+        let src = textarea.value;
+        document.getElementById('raw-text').value = Tools.urldecode(src);
+    }
+</script>

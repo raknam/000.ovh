@@ -22,3 +22,4 @@ tools:
   - sha256
   - sha512
   - sha384
+  - urlencode
